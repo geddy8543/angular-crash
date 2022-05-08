@@ -1,3 +1,4 @@
+import { StringMapWithRename } from '@angular/compiler/src/compiler_facade_interface';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-crash';
+  title: string = 'Task Tracker';
 }
