@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {Task} from '../../Task';
 
 @Component({
   selector: 'app-add-task',
@@ -18,5 +19,23 @@ export class AddTaskComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  onSubmit() {
+    if (!this.text) {
+      alert('Please add a task!');
+      return;
+  }
+  const newTask: Task = {
+    text: this.text,
+    day: this.day,
+    reminder: this.reminder,
+  };
+
+  this.onAddTask.emit(newTask);
+
+  this.text = '';
+  this.day = '';
+  this.reminder = false;
+}
 
 }
